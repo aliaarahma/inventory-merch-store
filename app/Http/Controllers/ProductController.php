@@ -31,4 +31,24 @@ class ProductController extends Controller
 
         return redirect('/products');
     }
+    public function edit($id)
+    {
+        $product = Product::find($id);
+        $categories = Category::all();
+        return view('products.edit', compact('product', 'categories'));
+    }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nama_produk' => 'required',
+            'harga' => 'required|numeric',
+            'stok' => 'required|integer',
+            'category_id' => 'required',
+        ]);
+
+        $product = Product::find($id);
+        $product->update($request->all());
+
+        return redirect('/products');
+    }
 }

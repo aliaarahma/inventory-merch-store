@@ -12,6 +12,7 @@
             <th>Nama Produk</th>
             <th>Harga</th>
             <th>Stok</th>
+            <th>Aksi</th>
         </tr>
         @foreach ($products as $product)
         <tr>
@@ -19,6 +20,7 @@
             <td>{{ $product->nama_produk }}</td>
             <td>{{ $product->harga }}</td>
             <td>{{ $product->stok }}</td>
+            <td><a href="/products/{{ $product->id }}/edit">Edit</a></td>
         </tr>
         @endforeach
     </table>
