@@ -2,36 +2,37 @@
 <html>
 <head>
     <title>Tambah Produk</title>
+    @vite('resources/css/app.css')
 </head>
-<body>
-    <h1>Tambah Produk Baru</h1>
+<body class="bg-gray-100 p-8">
+    <h1 class="text-2xl font-bold mb-4">Tambah Produk Baru</h1>
 
-    <form action="/products" method="POST">
+    <form action="/products" method="POST" class="bg-white p-6 rounded shadow max-w-md">
         @csrf
 
-        <label>Nama Produk:</label><br>
-        <input type="text" name="nama_produk"><br><br>
+        <label class="block mb-1 font-semibold">Nama Produk:</label>
+        <input type="text" name="nama_produk" class="w-full border p-2 rounded mb-4">
 
-        <label>Deskripsi:</label><br>
-        <textarea name="deskripsi"></textarea><br><br>
+        <label class="block mb-1 font-semibold">Deskripsi:</label>
+        <textarea name="deskripsi" class="w-full border p-2 rounded mb-4"></textarea>
 
-        <label>Harga:</label><br>
-        <input type="number" name="harga"><br><br>
+        <label class="block mb-1 font-semibold">Harga:</label>
+        <input type="number" name="harga" class="w-full border p-2 rounded mb-4">
 
-        <label>Stok:</label><br>
-        <input type="number" name="stok"><br><br>
+        <label class="block mb-1 font-semibold">Stok:</label>
+        <input type="number" name="stok" class="w-full border p-2 rounded mb-4">
 
-        <label>Gambar (nama file):</label><br>
-        <input type="text" name="gambar"><br><br>
+        <label class="block mb-1 font-semibold">Gambar (nama file):</label>
+        <input type="text" name="gambar" class="w-full border p-2 rounded mb-4">
 
-        <label>Kategori:</label><br>
-        <select name="category_id">
+        <label class="block mb-1 font-semibold">Kategori:</label>
+        <select name="category_id" class="w-full border p-2 rounded mb-4">
             @foreach ($categories as $category)
                 <option value="{{ $category->id }}">{{ $category->nama_kategori }}</option>
             @endforeach
-        </select><br><br>
+        </select>
 
-        <button type="submit">Simpan Produk</button>
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Simpan Produk</button>
     </form>
 </body>
 </html>
