@@ -50,8 +50,13 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
+
+        if ($category->products()->count() > 0) {
+            return redirect('/categories')->with('error', 'Kategori tidak bisa dihapus karena masih ada produk yang menggunakannya.');
+        }
+
         $category->delete();
 
-        return redirect('/categories');
+        return redirect('/categories')->with('success', 'Kategori berhasil dihapus.');
     }
 }
