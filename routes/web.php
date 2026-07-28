@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,4 +38,6 @@ Route::middleware('admin')->group(function () {
     Route::get('/orders', [OrderController::class, 'index']);
     Route::get('/orders/{id}/edit', [OrderController::class, 'edit']);
     Route::put('/orders/{id}', [OrderController::class, 'update']);
+
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 });

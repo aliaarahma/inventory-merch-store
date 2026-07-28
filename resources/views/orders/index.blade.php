@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Daftar Pesanan</title>
-    @vite('resources/css/app.css')
-</head>
-<body class="bg-gray-100 p-8">
+@extends('layouts.admin')
+
+@section('title', 'Daftar Pesanan')
+
+@section('content')
     <h1 class="text-2xl font-bold mb-4">Daftar Pesanan</h1>
 
     <a href="/orders/create" class="inline-block mb-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Buat Pesanan</a>
@@ -36,10 +34,9 @@
             <td class="p-3 border">{{ $order->status }}</td>
             <td class="p-3 border">Rp{{ $order->total_harga }}</td>
             <td class="p-3 border">
-            <a href="/orders/{{ $order->id }}/edit" class="text-blue-600 underline">Edit</a>
+                <a href="/orders/{{ $order->id }}/edit" class="text-blue-600 underline">Edit</a>
             </td>
         </tr>
         @endforeach
     </table>
-</body>
-</html>
+@endsection
