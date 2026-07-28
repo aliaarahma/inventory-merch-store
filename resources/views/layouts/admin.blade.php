@@ -5,21 +5,24 @@
     @vite('resources/css/app.css')
 </head>
 <body class="bg-gray-100">
-    <nav class="bg-gray-800 text-white p-4 flex justify-between items-center">
-        <div class="flex gap-4">
-            <a href="/products" class="hover:underline">Produk</a>
-            <a href="/dashboard" class="hover:underline">Dashboard</a>
-            <a href="/categories" class="hover:underline">Kategori</a>
-            <a href="/orders" class="hover:underline">Pesanan</a>
-        </div>
-        <form action="/logout" method="POST">
-            @csrf
-            <button type="submit" class="hover:underline">Logout</button>
-        </form>
-    </nav>
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-gray-800 text-white p-4 flex flex-col">
+            <h2 class="text-xl font-bold mb-8">Stockflow Admin</h2>
+            <nav class="flex flex-col gap-2 flex-1">
+                <a href="/dashboard" class="px-3 py-2 rounded hover:bg-gray-700">Dashboard</a>
+                <a href="/products" class="px-3 py-2 rounded hover:bg-gray-700">Produk</a>
+                <a href="/categories" class="px-3 py-2 rounded hover:bg-gray-700">Kategori</a>
+                <a href="/orders" class="px-3 py-2 rounded hover:bg-gray-700">Pesanan</a>
+            </nav>
+            <form action="/logout" method="POST">
+                @csrf
+                <button type="submit" class="w-full text-left px-3 py-2 rounded hover:bg-gray-700 text-red-300">Logout</button>
+            </form>
+        </aside>
 
-    <div class="p-8">
-        @yield('content')
+        <main class="flex-1 p-8">
+            @yield('content')
+        </main>
     </div>
 </body>
 </html>
