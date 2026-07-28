@@ -19,6 +19,7 @@
             <th class="p-3 border">Alamat</th>
             <th class="p-3 border">Status</th>
             <th class="p-3 border">Total</th>
+            <th class="p-3 border">Aksi</th>
         </tr>
         @foreach ($orders as $order)
         <tr class="border-b">
@@ -34,6 +35,9 @@
             <td class="p-3 border">{{ $order->alamat }}</td>
             <td class="p-3 border">{{ $order->status }}</td>
             <td class="p-3 border">Rp{{ $order->total_harga }}</td>
+            <td class="p-3 border">
+            <a href="/orders/{{ $order->id }}/edit" class="text-blue-600 underline">Edit</a>
+            </td>
         </tr>
         @endforeach
     </table>

@@ -25,3 +25,5 @@ Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
 Route::get('/orders', [OrderController::class, 'index']);
 Route::get('/orders/create', [OrderController::class, 'create']);
 Route::post('/orders', [OrderController::class, 'store']);
+Route::get('/orders/{id}/edit', [OrderController::class, 'edit']);
+Route::put('/orders/{id}', [OrderController::class, 'update']);

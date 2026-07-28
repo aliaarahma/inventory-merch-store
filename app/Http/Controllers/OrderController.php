@@ -66,4 +66,22 @@ class OrderController extends Controller
 
         return redirect('/orders');
     }
+
+    public function edit($id)
+    {
+        $order = Order::find($id);
+        return view('orders.edit', compact('order'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required|in:pending,processing,completed,cancelled',
+        ]);
+
+        $order = Order::find($id);
+        $order->update($request->all());
+
+        return redirect('/orders');
+    }
 }
